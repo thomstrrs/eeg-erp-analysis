@@ -13,11 +13,17 @@ Construire de zéro un pipeline EEG complet, du signal brut jusqu'aux potentiels
 ##  Étapes du pipeline
  
  **Chargement des données** : Lecture du fichier `.fif` (MNE Sample Dataset) et sélection des canaux EEG, EOG et de stimulation.
+ 
  **Filtrage** : Filtre passe-bas à 40 Hz et passe-haut à 0.1 Hz pour isoler les fréquences d'intérêt.
+ 
  **Correction des artefacts oculaires (ICA)** : Algorithme FastICA pour identifier et exclure la composante liée aux clignements d'yeux.
- **Segmentation (Epoching)** : Découpage du signal en fenêtres de −0.3 s à +0.7 s autour des événements, avec rejet automatique des époques trop bruitées (seuil 150 µV).
+ 
+ **Segmentation (Epoching)** : Découpage du signal en fenêtres de −0.3 s à +0.7 s autour des événements, avec rejet automatique des époques trop bruitées (seuil 
+150 µV).
  **Potentiels évoqués (ERP)** : Moyenne des époques pour faire ressortir les composantes N100 et P200.
+ 
  **Comparaison auditif vs visuel** : Superposition des courbes et topographies à 100 ms et 200 ms.
+ 
  **Onde de différence** : Soustraction auditive − visuelle pour isoler le réseau spécifique au traitement auditif.
  
 
